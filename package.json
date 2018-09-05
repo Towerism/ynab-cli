@@ -7,6 +7,8 @@
   },
   "scripts": {
     "build": "babel src -d dist",
+    "dev": "npm run build && node dist/bin/cli.js",
+    "dev-debug": "npm run build && node --inspect-brk dist/bin/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard src/**/*.js",
     "clean": "rimraf dist"

@@ -3,5 +3,6 @@
 import program from 'commander'
 
 program
-  .version('version-here')
+  .name('ynab')
+  .version('development-version')
   .parse(process.argv)
