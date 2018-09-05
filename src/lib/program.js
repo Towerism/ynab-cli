@@ -1,18 +1,15 @@
-import cli from 'commander'
 import { Injectable } from './ioc/injectable'
 
 @Injectable()
 class Program {
-  constructor ({ authentication }) {
+  constructor ({ authentication, cliService }) {
     this._authentication = authentication
-    this._cli = cli
+    this._cli = cliService
     this._initializeCLI()
   }
 
   _initializeCLI () {
     this._cli
-      .name('ynab')
-      .version('development-version')
       .command('auth [token]')
       .action(token => {
         this._authentication.authenticate(token)
