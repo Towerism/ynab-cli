@@ -2,7 +2,9 @@
   "name": "ynab-cli",
   "version": "0.0.1",
   "description": "CLI For YNAB budgeting application.",
-  "bin": "cli.js",
+  "bin": {
+    "ynab": "dist/bin/cli.js"
+  },
   "scripts": {
     "build": "babel src -d dist",
     "test": "echo \"Error: no test specified\" && exit 1",
