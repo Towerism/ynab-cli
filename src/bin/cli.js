@@ -3,6 +3,9 @@
 import program from 'commander'
 import { resolve } from '../lib/ioc/resolve'
 import { Authentication } from '../lib/controllers/authentication'
+import { initializeIocContext } from '../lib/initialize-ioc-context'
+
+initializeIocContext()
 
 const authentication = resolve(Authentication)
 

@@ -1,14 +1,15 @@
-import { container } from './container'
 import { Lifetime } from './lifetime'
-import { asClass } from 'awilix'
-import { tokenFromConstructor } from './token-from-constructor'
+import { constructorToToken } from './constructor-to-token'
+import { add } from './injectionTable'
 
-export function Injectable (lifetime) {
+export function Injectable ({ lifetime, provider } = {}) {
   return constructor => {
     lifetime = lifetime || Lifetime.TRANSIENT
-    const token = tokenFromConstructor(constructor)
-    container.register({
-      [token]: asClass(constructor, { lifetime })
+    const token = constructorToToken(constructor)
+    provider = provider || { useConstructor: constructor }
+    add(token, {
+      lifetime,
+      provider
     })
   }
 }

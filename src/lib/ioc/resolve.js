@@ -1,7 +1,6 @@
 import { container } from './container'
-import { tokenFromConstructor } from './token-from-constructor'
+import { constructorToToken } from './constructor-to-token'
 
 export function resolve (constructor) {
-  const token = tokenFromConstructor(constructor)
-  return container.resolve(token)
+  return container.resolve(constructorToToken(constructor))
 }
