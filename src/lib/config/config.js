@@ -4,15 +4,15 @@ const TOKEN = 'token'
 
 export class Config {
   constructor () {
-    this.config = new ConfigStore('ynab-cli', { [TOKEN]: null })
+    this._config = new ConfigStore('ynab-cli', { [TOKEN]: null })
   }
 
   set token (token) {
-    this.config.set(TOKEN, token)
+    this._config.set(TOKEN, token)
   }
 
   get token () {
-    return this.config.get(TOKEN)
+    return this._config.get(TOKEN)
   }
 }
 

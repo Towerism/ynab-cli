@@ -1,13 +1,17 @@
 #!/usr/bin/env node
 
 import program from 'commander'
-import { auth } from '../lib/auth'
+import { resolve } from '../lib/ioc/resolve'
+import { Authentication } from '../lib/controllers/authentication'
+
+const authentication = resolve(Authentication)
 
 program
   .name('ynab')
   .version('development-version')
+  .command('auth [token]')
+  .action(token => {
+    authentication.authenticate(token)
+  })
 
-auth(program)
-
-program
-  .parse(process.argv)
+program.parse(process.argv)
