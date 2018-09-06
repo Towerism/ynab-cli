@@ -6,7 +6,7 @@ export function add (token, options = {}) {
   if (contains(token)) {
     Object.assign(table[token], options)
   } else {
-    table[token] = newEntry()
+    table[token] = newEntry(options)
   }
 }
 
@@ -21,8 +21,9 @@ export function contains (token) {
   return includes(Object.keys(table), token)
 }
 
-function newEntry () {
-  return {
-    registerCommands: []
-  }
+function newEntry (extend) {
+  return Object.assign({
+    registerCommands: [],
+    actionsForOptions: []
+  }, extend)
 }

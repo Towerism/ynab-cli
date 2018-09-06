@@ -3,13 +3,16 @@ import { Action } from '../ioc/action'
 import chalk from 'chalk'
 import moment from 'moment'
 
-@Controller('budget')
+@Controller({
+  command: 'budget',
+  options: [['-l, --list', 'list all budgets']]
+})
 class BudgetController {
   constructor ({ budgetService }) {
     this._budgetService = budgetService
   }
 
-  @Action('list')
+  @Action({ forOptions: options => options.list })
   async list () {
     const { data: { budgets } } = await this._budgetService.list()
     console.log(chalk.green(`Found ${budgets.length} budgets`))
