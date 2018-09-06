@@ -7,11 +7,7 @@ class BudgetService {
   }
 
   async list () {
-    try {
-      return this._ynab.budgets.getBudgets()
-    } catch (error) {
-      console.error(error)
-    }
+    return this._ynab.budgets.getBudgets()
   }
 }
 

@@ -7,11 +7,7 @@ class CategoryService {
   }
 
   async list (budgetId) {
-    try {
-      return this._ynab.categories.getCategories(budgetId)
-    } catch (error) {
-      console.error(error)
-    }
+    return this._ynab.categories.getCategories(budgetId)
   }
 }
 

@@ -1,5 +1,6 @@
 import { get } from './controller-table'
 import { constructorToToken } from './constructor-to-token'
+import chalk from 'chalk'
 
 export function Action (command) {
   return (target, methodName) => {
@@ -9,7 +10,11 @@ export function Action (command) {
       cliService
         .command(`${prefix}:${command}`)
         .action(async (...args) => {
-          await instance[methodName](...args)
+          try {
+            await instance[methodName](...args)
+          } catch (error) {
+            console.log(chalk.bold.red(JSON.stringify(error, null, 2)))
+          }
         })
     })
   }
