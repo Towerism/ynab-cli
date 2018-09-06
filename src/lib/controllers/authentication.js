@@ -1,14 +1,9 @@
 import { Controller } from '../ioc/controller'
 
-@Controller()
+@Controller('auth [token]')
 class Authentication {
-  constructor ({ configService, cliService }) {
+  constructor ({ configService }) {
     this._config = configService
-    cliService
-      .command('auth [token]')
-      .action(token => {
-        this.authenticate(token)
-      })
   }
 
   authenticate (token) {

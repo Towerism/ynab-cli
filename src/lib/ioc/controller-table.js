@@ -2,11 +2,11 @@ import { includes } from 'lodash'
 
 const table = {}
 
-export function add (token, constructor) {
-  table[token] = constructor
+export function add (token, options) {
+  table[token] = options
 }
 
-export function get (token, constructor) {
+export function get (token) {
   return table[token]
 }
 
