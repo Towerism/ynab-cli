@@ -24,10 +24,10 @@ The auth command sets up authentication for the rest of the application. Simply
 run `ynab auth -t <your api token here>`, and subsequent commands will your
 authorization.
 
-| options             | info                         |
-|:--------------------|:-----------------------------|
-| -t, --token <token> | set token                    |
-| -u, --user          | get current user information |
+| options                | info                         |
+|:-----------------------|:-----------------------------|
+| `-t, --token <token>` | set token                    |
+| `-u, --user`           | get current user information |
 
 ### budget
 
@@ -35,10 +35,10 @@ authorization.
 $ ynab budget [options]
 ```
 
-| options              | info                               |
-|:---------------------|:-----------------------------------|
-| -l, --list           | list budgets                       |
-| -u, --use <budgetId> | use budget for subsequent commands |
+| options                | info                               |
+|:-----------------------|:-----------------------------------|
+| `-l, --list`           | list budgets                       |
+| `-u, --use <budgetId>` | use budget for subsequent commands |
 
 ### category
 
@@ -46,9 +46,9 @@ $ ynab budget [options]
 $ ynab category [options]
 ```
 
-| options               | info            |
-|:----------------------|:----------------|
-| -l, --list [budgetId] | list categories |
+| options                 | info            |
+|:------------------------|:----------------|
+| `-l, --list [budgetId]` | list categories |
 
 ### Goals
 
