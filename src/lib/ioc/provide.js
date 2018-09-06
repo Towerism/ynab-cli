@@ -1,5 +1,5 @@
 import { container } from './container'
-import { asClass, asValue } from 'awilix'
+import { asClass, asValue, asFunction } from 'awilix'
 import { get, add } from './injection-table'
 import { contains as controllerTableContains } from './controller-table'
 import { constructorToToken } from './constructor-to-token'
@@ -47,5 +47,7 @@ function getProvider (options) {
     return asClass(provider.useConstructor, options)
   } else if (provider.useValue) {
     return asValue(provider.useValue)
+  } else if (provider.useFactory) {
+    return asFunction(provider.useFactory)
   }
 }

@@ -4,12 +4,12 @@ import { constructorToToken } from './constructor-to-token'
 export function Action (command) {
   return (target, methodName) => {
     const token = constructorToToken(target.constructor)
-    const options = get(token)
-    options.registerCommands.push((cliService, instance) => {
+    const { registerCommands } = get(token)
+    registerCommands.push((prefix, cliService, instance) => {
       cliService
-        .command(command)
-        .action((...args) => {
-          instance[methodName](...args)
+        .command(`${prefix}:${command}`)
+        .action(async (...args) => {
+          await instance[methodName](...args)
         })
     })
   }
