@@ -21,7 +21,7 @@ export function Controller (options) {
             const cmd = last(args)
             actionsForOptions.forEach(({ forOptions, methodName }) => {
               if (forOptions(cmd)) {
-                instance[methodName](args)
+                instance[methodName](cmd)
               }
             })
           })

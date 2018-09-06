@@ -3,16 +3,19 @@ import { Action } from '../ioc/action'
 import chalk from 'chalk'
 import { drop } from 'lodash'
 
-@Controller({ prefix: 'category' })
+@Controller({
+  command: 'category',
+  options: [['-l, --list <budgetId>', 'list all categories']]
+})
 class CategoryController {
   constructor ({ categoryService, logService }) {
     this._categoryService = categoryService
     this._logger = logService
   }
 
-  @Action({ command: 'list <budgetId>' })
-  async list (budgetId) {
-    const { data } = await this._categoryService.list(budgetId)
+  @Action({ forOptions: options => options.list })
+  async list ({ list }) {
+    const { data } = await this._categoryService.list(list)
     drop(data.category_groups, 1).forEach(group => {
       this._logger.print(chalk.green(group.name))
       group.categories.forEach(category => {
