@@ -1,5 +1,5 @@
 import { provideAll } from './ioc/provide'
-import { Authentication } from './controllers/authentication'
+import { AuthController } from './controllers/auth.controller'
 import { CliService } from './services/cli/cli.service'
 import { ConfigStoreService } from './services/config-store/config-store.service'
 import { ConfigService } from './services/config/config.service'
@@ -14,7 +14,7 @@ import { UserService } from './services/ynab/user/user.service'
 
 export function initializeIocContext () {
   provideAll([
-    Authentication,
+    AuthController,
     BudgetController,
     BudgetService,
     CategoryController,

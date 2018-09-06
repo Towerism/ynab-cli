@@ -9,7 +9,7 @@ import chalk from '../../../node_modules/chalk'
     ['-u, --user', 'get user information']
   ]
 })
-class Authentication {
+class AuthController {
   constructor ({ configService, userService, logService }) {
     this._config = configService
     this._userService = userService
@@ -34,4 +34,4 @@ class Authentication {
   }
 }
 
-export { Authentication }
+export { AuthController }
