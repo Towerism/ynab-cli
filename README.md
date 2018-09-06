@@ -52,8 +52,7 @@ $ ynab category [options]
 
 ### Goals
 
-- Unit testing
-- Extract ioc framework to its own npm package
+Check out the [project](https://github.com/Towerism/ynab-cli/projects/1) to see what needs to get done.
 
 ### Development
 
