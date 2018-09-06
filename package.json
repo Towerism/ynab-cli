@@ -43,5 +43,8 @@
   },
   "standard": {
     "parser": "babel-eslint"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
