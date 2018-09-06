@@ -2,14 +2,10 @@ import { add } from './controller-table'
 import { constructorToToken } from './constructor-to-token'
 import { Injectable } from './injectable'
 
-export function Controller (command) {
+export function Controller () {
   return (constructor) => {
     const token = constructorToToken(constructor)
-    add(token, {
-      registerCommand (cli) {
-        return cli.command(command)
-      }
-    })
+    add(token)
     Injectable()(constructor)
   }
 }

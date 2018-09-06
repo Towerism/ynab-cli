@@ -1,13 +1,13 @@
 import { Controller } from '../ioc/controller'
 import { Action } from '../ioc/action'
 
-@Controller('auth [token]')
+@Controller()
 class Authentication {
   constructor ({ configService }) {
     this._config = configService
   }
 
-  @Action()
+  @Action('auth [token]')
   authenticate (token) {
     if (token) {
       this._config.token = token
@@ -15,6 +15,11 @@ class Authentication {
     } else {
       console.log('token read from config: %j', this._config.token)
     }
+  }
+
+  @Action('other-auth [word]')
+  otherAuth (word) {
+    console.log('Hello other auth: %j', word)
   }
 }
 

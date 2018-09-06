@@ -13,9 +13,9 @@ export function resolve (token) {
 
 function registerCommandIfController (token, instance) {
   if (controllerTableContains(token)) {
-    const cli = container.cradle.cliService
-    const { registerCommand, defineActions } = getControllerOptions(token)
-    const command = registerCommand(cli)
-    defineActions.forEach(defineAction => defineAction(command, instance))
+    const { registerCommands } = getControllerOptions(token)
+    registerCommands.forEach(registerCommand =>
+      registerCommand(container.cradle.cliService, instance)
+    )
   }
 }
