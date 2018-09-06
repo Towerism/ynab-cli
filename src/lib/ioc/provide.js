@@ -1,12 +1,17 @@
 import { container } from './container'
 import { asClass, asValue } from 'awilix'
-import { get, add } from './injectionTable'
+import { get, add } from './injection-table'
+import { contains as controllerTableContains } from './controller-table'
 import { constructorToToken } from './constructor-to-token'
+import { resolveAll } from './resolve-all'
+
+const controllersToResolve = []
 
 export function provideAll (injectables) {
   injectables.forEach(injectable => {
     registerInjectable(injectable)
   })
+  resolveAll(controllersToResolve)
 }
 
 export function provide (name, { lifetime, provider }) {
@@ -27,6 +32,13 @@ function registerInjection (token, injection) {
   container.register({
     [token]: getProvider(injection)
   })
+  resolveIfController(token)
+}
+
+function resolveIfController (token) {
+  if (controllerTableContains(token)) {
+    controllersToResolve.push(token)
+  }
 }
 
 function getProvider (options) {

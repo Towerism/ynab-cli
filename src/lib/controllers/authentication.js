@@ -1,9 +1,14 @@
-import { Injectable } from '../ioc/injectable'
+import { Controller } from '../ioc/controller'
 
-@Injectable()
+@Controller()
 class Authentication {
-  constructor ({ configService }) {
+  constructor ({ configService, cliService }) {
     this._config = configService
+    cliService
+      .command('auth [token]')
+      .action(token => {
+        this.authenticate(token)
+      })
   }
 
   authenticate (token) {
