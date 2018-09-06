@@ -5,17 +5,18 @@ import { drop } from 'lodash'
 
 @Controller({ prefix: 'category' })
 class CategoryController {
-  constructor ({ categoryService }) {
+  constructor ({ categoryService, logService }) {
     this._categoryService = categoryService
+    this._logger = logService
   }
 
   @Action({ command: 'list <budgetId>' })
   async list (budgetId) {
     const { data } = await this._categoryService.list(budgetId)
     drop(data.category_groups, 1).forEach(group => {
-      console.log(chalk.green(group.name))
+      this._logger.print(chalk.green(group.name))
       group.categories.forEach(category => {
-        console.log(`    ${category.name}: ${chalk.yellow('$%d')}`, category.balance / 1000)
+        this._logger.print(`    ${category.name}: ${chalk.yellow('$%d')}`, category.balance / 1000)
       })
     })
   }

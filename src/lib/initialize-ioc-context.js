@@ -9,6 +9,7 @@ import { CategoryService } from './services/ynab/category/category.service'
 import { BudgetService } from './services/ynab/budget/budget.service'
 import { BudgetController } from './controllers/budget.controller'
 import { CategoryController } from './controllers/category.controller'
+import { LogService } from './services/log/log.service'
 
 export function initializeIocContext () {
   provideAll([
@@ -20,6 +21,7 @@ export function initializeIocContext () {
     CliService,
     ConfigStoreService,
     ConfigService,
+    LogService,
     Program,
     YnabService
   ])
