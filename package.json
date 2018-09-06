@@ -2,7 +2,7 @@
   "name": "@ynab-cli/cli",
   "version": "0.0.0-development",
   "description": "CLI For YNAB budgeting application.",
-  "repository": "https://www.github.com/towerism/ynab-cli",
+  "repository": "git@github.com:towerism/ynab-cli",
   "bin": {
     "ynab": "dist/bin/cli.js"
   },
