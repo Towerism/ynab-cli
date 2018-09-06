@@ -1,4 +1,5 @@
 import { Controller } from '../ioc/controller'
+import { Action } from '../ioc/action'
 
 @Controller('auth [token]')
 class Authentication {
@@ -6,6 +7,7 @@ class Authentication {
     this._config = configService
   }
 
+  @Action()
   authenticate (token) {
     if (token) {
       this._config.token = token
