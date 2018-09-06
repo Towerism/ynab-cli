@@ -5,11 +5,15 @@ import moment from 'moment'
 
 @Controller({
   command: 'budget',
-  options: [['-l, --list', 'list all budgets']]
+  options: [
+    ['-l, --list', 'list all budgets'],
+    ['-u, --use <budgetId>', 'use budget for subsequent commands']
+  ]
 })
 class BudgetController {
-  constructor ({ budgetService, logService }) {
+  constructor ({ budgetService, configService, logService }) {
     this._budgetService = budgetService
+    this._config = configService
     this._logger = logService
   }
 
@@ -23,6 +27,11 @@ class BudgetController {
       this._logger.print(`name: ${budget.name}`)
       this._logger.print(`modified: ${lastModified}\n`)
     })
+  }
+
+  @Action({ forOptions: options => options.use })
+  async useBudgetId ({ use }) {
+    this._config.activeBudgetId = use
   }
 }
 

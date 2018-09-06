@@ -22,8 +22,8 @@ export function Controller (options) {
             const cmd = last(args)
             actionsForOptions.forEach(async ({ forOptions, methodName }) => {
               if (forOptions(cmd)) {
-                await wrapAsync(async () => {
-                  await instance[methodName](cmd)
+                return wrapAsync(async () => {
+                  return instance[methodName](cmd)
                 })
               }
             })

@@ -35,10 +35,10 @@ authorization.
 $ ynab budget [options]
 ```
 
-| options    | info         |
-|:-----------|:-------------|
-| -l, --list | list budgets |
-
+| options              | info                               |
+|:---------------------|:-----------------------------------|
+| -l, --list           | list budgets                       |
+| -u, --use <budgetId> | use budget for subsequent commands |
 
 ### category
 
@@ -48,7 +48,7 @@ $ ynab category [options]
 
 | options               | info            |
 |:----------------------|:----------------|
-| -l, --list <budgetId> | list categories |
+| -l, --list [budgetId] | list categories |
 
 ### Goals
 
