@@ -1,12 +1,16 @@
 language: node_js
 cache:
   directories:
-  - node_modules
+    - ~/.npm
+notifications:
+  email: false
 node_js:
-- 10
-env:
-  global:
-  - secure: X0yVZKowbwXWXcyWv75ixrVWXlnduKvOTI92wgBqOKHTRftV7/9rimI2kWl8+lrRVm5R2FW0QSULm8cLXy9vqEFGe1rkEj/1O8zHNMqXG0M989JewmfTR2oFHN2R18VIasyUw7r8P9454lmNUCFl67LLaD81M0RuswvcJNAiSmUCw7/TdLbBifQy/Qk5yRA6TXPJmJQkvMGc4hs6rpE4Yyt3vQipIkJSXwJ7jE0//5dBm3D7g92TLRpjSMJhzHN0+tHFeJDKSHLsrdxGWgj7tw4+IfaRiDRaJdBXD3x+GXzfv8HpqZJP+2W1Eco+tx6cOox+aFi0P4RDAR/64L1UB2c2gNVRUjr82yui4LkHZqP4sK+5JkKXdnMADzGsWcan9HMJET18r0QfzOlyQpOdM4B82QYaiAE3JrUdvbjvevBa2Wi8NSzAs4Br3c4DwAS1t/PCEdYKm9KoPAhwGkEVFy3VF0029LYDBwZjjTe36zQovbKgVJUd0jCSsVmvdmAPuECWxbhTa0YUl9q2MJhxR2qazpXv/3TJnkv4YeqW43rHHIqhrR3VH+i8MDWH0ZlQZ+EV+W1PW7nNbLWiyuxpKPzWO5AExoWLnykon6V3Zk173i0+hgOsB4iPj00WFJMA26kZWzUTpcO7fdbXqlHtwe5VvQlIZTq2KZ9coinuK8A=
-  - secure: Y/3QmJNpc60xpZQxNLOGOz4sMhv032DcE+tR1dW8Rrs6rFjFREBbX4Ywz5ylZZgTQR8ypIqKl/RzERJL0cVdFaTpVZzBxbV4TsnCPX8ZnGyxtWKVkshz9LBdyZHk/NE7RHi08Cw8gmnYZICVNUIU+fdKevQm5oU/Li5Y/W23ean7fASDyiO8nLdmH90WImCSYyBehskmFB0O9d79coEuH+pUmabWZvl+x4FFEgcqmvMV0oprMDVt8SB4GV1doBhDznl6Dd7pj1w1Rnx1AsW1gqExrkuyHCsepsMOgKX4Qx8wzupvt7NKy+SX8/kZCzKAg2RN8Z6nYYQ6lauA1I5nHJZ7xksVZK4zMaRzhII/HjGY7deQIpUDmrfDEegpaTxmHYB0LO+GETRiaU1cUgUunEBm9U3AermF6u3joo+moWHgTcHvZ60YK7XRY6l2hG4znDsOkVOJy4ZuZCAxUaalCA+2u6KTtgu+sQj6/WbHkm2xkNGRtcnlLfTL30gxRNqmzGWaszRYRO4hxbgIcB0wEQ7nZOjtH/N0jJbvx2+4t5bux7WT4ZtFAkKjK0qH5+RFTYwzOXLNGDXghBnk0IZgVKTXL6DeVX7EVt54XX5rYGsKyAKpi/25jEurOV2DWjSZBUv0r96oQZHtdmEyEwqqnYfx7cB0eJJeFSxrx/ZOc98=
+  - '10'
+  - '9'
+  - '8'
+  - '6'
 after_success:
-- npx semantic-release
+  - npm run travis-deploy-once "npm run semantic-release"
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

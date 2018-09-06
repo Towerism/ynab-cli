@@ -1,6 +1,6 @@
 {
   "name": "@ynab-cli/cli",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "CLI For YNAB budgeting application.",
   "repository": "https://www.github.com/towerism/ynab-cli",
   "bin": {
@@ -13,7 +13,9 @@
     "dev-debug": "npm run build && node --inspect-brk dist/bin/cli.js",
     "test": "npm run lint && npm run build",
     "lint": "standard src/**/*.js | snazzy",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "travis-deploy-once": "travis-deploy-once",
+    "semantic-release": "semantic-release"
   },
   "author": "Martin Fracker <martin.frackerjr@gmail.com>",
   "license": "GPL-3.0",
@@ -36,7 +38,8 @@
     "rimraf": "^2.6.2",
     "semantic-release": "^15.9.12",
     "snazzy": "^8.0.0",
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "travis-deploy-once": "^5.0.7"
   },
   "standard": {
     "parser": "babel-eslint"
