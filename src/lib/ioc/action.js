@@ -1,6 +1,6 @@
 import { get } from './controller-table'
 import { constructorToToken } from './constructor-to-token'
-import chalk from 'chalk'
+import { wrapAsync } from './wrap-async'
 
 export function Action (action) {
   return (target, methodName) => {
@@ -19,11 +19,7 @@ function addCommandsToRegister (token, command, methodName) {
     cliService
       .command(`${prefix}:${command}`)
       .action(async (...args) => {
-        try {
-          await instance[methodName](...args)
-        } catch (error) {
-          console.log(chalk.bold.red(JSON.stringify(error, null, 2)))
-        }
+        wrapAsync(async () => instance[methodName](...args))
       })
   })
 }

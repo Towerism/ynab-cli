@@ -1,5 +1,6 @@
 import { Controller } from '../ioc/controller'
 import { Action } from '../ioc/action'
+import chalk from '../../../node_modules/chalk'
 
 @Controller({
   command: 'auth',
@@ -9,20 +10,27 @@ import { Action } from '../ioc/action'
   ]
 })
 class Authentication {
-  constructor ({ configService, logService }) {
+  constructor ({ configService, userService, logService }) {
     this._config = configService
+    this._userService = userService
     this._logger = logService
   }
 
   @Action({ forOptions: options => options.token })
-  setToken ({ token }) {
+  async setToken ({ token }) {
     this._config.token = token
-    this._logger.print(`wrote token to config (token: ${this._config.token})`)
+    this._logger.print(chalk.green('Token saved.'))
   }
 
   @Action({ forOptions: options => options.user })
-  getToken () {
-    this._logger.print(`token read from config: ${this._config.token}`)
+  async getToken () {
+    const id = await this._getUserId()
+    this._logger.print(`user-id: ${chalk.yellow(id)}`)
+  }
+
+  async _getUserId () {
+    const response = await this._userService.getCurrentUser()
+    return response.data.user.id
   }
 }
 

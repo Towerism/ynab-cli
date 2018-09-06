@@ -2,6 +2,7 @@ import { Controller } from '../ioc/controller'
 import { Action } from '../ioc/action'
 import chalk from 'chalk'
 import { drop } from 'lodash'
+import { utils } from 'ynab'
 
 @Controller({
   command: 'category',
@@ -19,7 +20,8 @@ class CategoryController {
     drop(data.category_groups, 1).forEach(group => {
       this._logger.print(chalk.green(group.name))
       group.categories.forEach(category => {
-        this._logger.print(`    ${category.name}: ${chalk.yellow('$%d')}`, category.balance / 1000)
+        const balance = utils.convertMilliUnitsToCurrencyAmount(category.balance, 2)
+        this._logger.print(`    ${category.name}: ${chalk.yellow(`$${balance}`)}`)
       })
     })
   }
