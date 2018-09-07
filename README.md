@@ -31,7 +31,7 @@ $ ynab auth [options]
 ```
 
 The auth command sets up authentication for the rest of the application. Simply
-run `ynab auth -t <your api token here>`, and subsequent commands will your
+run `ynab auth -t <your api token here>`, and subsequent commands will use your
 authorization.
 
 | options                | info                         |
