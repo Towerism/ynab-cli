@@ -9,4 +9,4 @@ import { initializeIocContext } from '../lib/initialize-ioc-context'
 initializeIocContext()
 
 const program = resolve(Program)
-program.run()
+program.run(process.argv)
