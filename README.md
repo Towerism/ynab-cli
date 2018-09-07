@@ -70,11 +70,11 @@ $ ynab account [options]
 |:------------------------|:--------------|
 | `-l, --list [budgetId]` | list accounts |
 
-### Goals
+## Goals
 
 Check out the [project](https://github.com/Towerism/ynab-cli/projects/1) to see what needs to get done.
 
-### Development
+## Development
 
 This tool utilizes `awilix` for IoC and `commander` for the CLI. A wrapper has
 been written around both of them so that a Controller-Service architecture can
