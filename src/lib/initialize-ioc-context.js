@@ -11,9 +11,13 @@ import { BudgetController } from './controllers/budget.controller'
 import { CategoryController } from './controllers/category.controller'
 import { LogService } from './services/log/log.service'
 import { UserService } from './services/ynab/user/user.service'
+import { AccountController } from './controllers/account.controller'
+import { AccountService } from './services/ynab/account/account.service'
 
 export function initializeIocContext () {
   provideAll([
+    AccountController,
+    AccountService,
     AuthController,
     BudgetController,
     BudgetService,

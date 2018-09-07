@@ -10,6 +10,10 @@ class LogService {
   silly (message) {
     console.log(chalk.italic.cyan(message))
   }
+
+  json (object) {
+    console.log(JSON.stringify(object, null, 2))
+  }
 }
 
 export { LogService }
