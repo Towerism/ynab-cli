@@ -1,9 +1,10 @@
 import cli from 'commander'
 import { provide } from '../../ioc/provide'
+import pjson from '../../../../package.json'
 
 cli
   .name('ynab')
-  .version('development-version')
+  .version(pjson.version)
 
 export const CliService = provide('cliService', {
   provider: {
