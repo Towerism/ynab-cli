@@ -2,15 +2,15 @@ import { Controller } from '../ioc/controller'
 import { Action } from '../ioc/action'
 import chalk from 'chalk'
 import { drop } from 'lodash'
-import { utils } from 'ynab'
 
 @Controller({
   command: 'category',
   options: [['-l, --list [budgetId]', 'list all categories']]
 })
 class CategoryController {
-  constructor ({ categoryService, configService, logService }) {
+  constructor ({ categoryService, formatService, configService, logService }) {
     this._categoryService = categoryService
+    this._formatter = formatService
     this._config = configService
     this._logger = logService
   }
@@ -21,7 +21,7 @@ class CategoryController {
     drop(data.category_groups, 1).forEach(group => {
       this._logger.print(chalk.green(group.name))
       group.categories.forEach(category => {
-        const balance = utils.convertMilliUnitsToCurrencyAmount(category.balance, 2)
+        const balance = this._formatter.milliUnitsToUsd(category.balance, 2)
         this._logger.print(`    ${category.name}: ${chalk.yellow(`$${balance}`)}`)
       })
     })

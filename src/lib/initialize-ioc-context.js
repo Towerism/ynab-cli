@@ -13,6 +13,7 @@ import { LogService } from './services/log/log.service'
 import { UserService } from './services/ynab/user/user.service'
 import { AccountController } from './controllers/account.controller'
 import { AccountService } from './services/ynab/account/account.service'
+import { FormatService } from './services/format/format.service'
 
 export function initializeIocContext () {
   provideAll([
@@ -26,6 +27,7 @@ export function initializeIocContext () {
     CliService,
     ConfigStoreService,
     ConfigService,
+    FormatService,
     LogService,
     Program,
     UserService,

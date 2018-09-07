@@ -1,7 +1,6 @@
 import { Controller } from '../ioc/controller'
 import { Action } from '../ioc/action'
 import chalk from 'chalk'
-import moment from 'moment'
 
 @Controller({
   command: 'budget',
@@ -11,8 +10,9 @@ import moment from 'moment'
   ]
 })
 class BudgetController {
-  constructor ({ budgetService, configService, logService }) {
+  constructor ({ budgetService, formatService, configService, logService }) {
     this._budgetService = budgetService
+    this._formatter = formatService
     this._config = configService
     this._logger = logService
   }
@@ -22,7 +22,7 @@ class BudgetController {
     const { data: { budgets } } = await this._budgetService.list()
     this._logger.print(chalk.green(`Found ${budgets.length} budgets`))
     budgets.forEach(budget => {
-      const lastModified = moment(budget.last_modified_on).format('LL')
+      const lastModified = this._formatter.isoToLongDate(budget.last_modified_on)
       this._logger.print(`id: ${chalk.yellow(budget.id)}`)
       this._logger.print(`name: ${budget.name}`)
       this._logger.print(`modified: ${lastModified}\n`)
