@@ -1,6 +1,7 @@
 # YNAB CLI
 
 [![Build Status](https://travis-ci.org/Towerism/ynab-cli.svg?branch=master)](https://travis-ci.org/Towerism/ynab-cli)
+[![codecov](https://codecov.io/gh/Towerism/ynab-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/Towerism/ynab-cli)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![npm version](https://badge.fury.io/js/%40ynab-cli%2Fcli.svg)](https://badge.fury.io/js/%40ynab-cli%2Fcli)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
