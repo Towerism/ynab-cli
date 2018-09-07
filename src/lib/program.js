@@ -6,8 +6,8 @@ class Program {
     this._cli = cliService
   }
 
-  run () {
-    this._cli.parse(process.argv)
+  run (argv) {
+    this._cli.parse(argv)
   }
 }
 

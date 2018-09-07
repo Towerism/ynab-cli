@@ -1,7 +1,7 @@
 import { add, get } from './controller-table'
 import { constructorToToken } from './constructor-to-token'
 import { Injectable } from './injectable'
-import { forEach, last } from 'lodash'
+import { last } from 'lodash'
 import { wrapAsync } from './wrap-async'
 
 export function Controller (options) {
