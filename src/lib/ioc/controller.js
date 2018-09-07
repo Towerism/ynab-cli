@@ -1,7 +1,7 @@
 import { add, get } from './controller-table'
 import { constructorToToken } from './constructor-to-token'
 import { Injectable } from './injectable'
-import { last } from 'lodash'
+import { forEach, last } from 'lodash'
 import { wrapAsync } from './wrap-async'
 
 export function Controller (options) {
@@ -18,15 +18,16 @@ export function Controller (options) {
             .option(...option)
         })
         command
-          .action((...args) => {
+          .action(async (...args) => {
             const cmd = last(args)
-            actionsForOptions.forEach(async ({ forOptions, methodName }) => {
+            for (const { forOptions, methodName } of actionsForOptions) {
               if (forOptions(cmd)) {
-                return wrapAsync(async () => {
-                  return instance[methodName](cmd)
+                await wrapAsync(async () => {
+                  await instance[methodName](cmd)
                 })
+                break
               }
-            })
+            }
           })
       })
     }
