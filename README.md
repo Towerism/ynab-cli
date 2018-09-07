@@ -11,6 +11,11 @@ CLI tool for YNAB budgeting software
 
 This tool is a work in progress. Contributions are welcome.
 
+## Install
+``` bash
+$ npm install -g @ynab-cli/cli
+```
+
 ## Current functionality
 
 ``` bash
