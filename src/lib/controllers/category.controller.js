@@ -22,7 +22,7 @@ class CategoryController {
       this._logger.print(chalk.green(group.name))
       group.categories.forEach(category => {
         const balance = this._formatter.milliUnitsToUsd(category.balance, 2)
-        this._logger.print(`    ${category.name}: ${chalk.yellow(`$${balance}`)}`)
+        this._logger.print(`    ${category.name}: ${chalk.yellow(`${balance}`)}`)
       })
     })
   }
