@@ -23,7 +23,7 @@ export function contains (token) {
 
 function newEntry (extend) {
   return Object.assign({
-    registerCommands: [],
+    registerCommand: () => {},
     actionsForOptions: [],
     actionViews: {}
   }, extend)

@@ -13,9 +13,7 @@ export function resolve (token) {
 
 function registerCommandIfController (token, instance) {
   if (controllerTableContains(token)) {
-    const { registerCommands, prefix } = getControllerOptions(token)
-    registerCommands.forEach(registerCommand =>
-      registerCommand(prefix, container.cradle.cliService, instance)
-    )
+    const { registerCommand, prefix } = getControllerOptions(token)
+    registerCommand(prefix, container.cradle.cliService, instance)
   }
 }
