@@ -1,4 +1,4 @@
-import { Injectable } from '../../ioc/decorators/injectable'
+import { Injectable } from '../../ioc'
 import { utils } from 'ynab'
 import moment from 'moment'
 import chalk from 'chalk'

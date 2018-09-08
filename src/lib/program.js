@@ -1,4 +1,4 @@
-import { EntryPoint } from './ioc/decorators/entry-point'
+import { EntryPoint } from './ioc'
 import pjson from '../../package.json'
 
 @EntryPoint({

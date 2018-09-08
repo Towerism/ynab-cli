@@ -1,5 +1,5 @@
 import * as ynab from 'ynab'
-import { provide } from '../../ioc/provide'
+import { provide } from '../../ioc'
 
 function makeYnabService ({ configService }) {
   return new ynab.API(configService.token)

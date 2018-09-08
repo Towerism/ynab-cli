@@ -1,5 +1,4 @@
-import { Controller } from '../ioc/decorators/controller'
-import { Action } from '../ioc/decorators/action'
+import { Controller, Action } from '../ioc'
 import { drop } from 'lodash'
 import { CategoriesView } from '../views/category/categories.view'
 

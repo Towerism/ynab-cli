@@ -1,4 +1,4 @@
-import { provide } from '../../src/lib/ioc/provide'
+import { provide } from '../../src/lib/ioc'
 
 export function provideYnabService (service) {
   provide('ynabService', {

@@ -1,4 +1,4 @@
-import { Lifetime } from '../lifetime'
+import { Lifetime } from '../'
 import { constructorToToken } from '../constructor-to-token'
 import { provide } from '../provide'
 

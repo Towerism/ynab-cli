@@ -1,5 +1,4 @@
-import { Controller } from '../ioc/decorators/controller'
-import { Action } from '../ioc/decorators/action'
+import { Controller, Action } from '../ioc'
 import { SuccessView } from '../views/success.view'
 import { UserView } from '../views/auth/user.view'
 
