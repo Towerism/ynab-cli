@@ -33,7 +33,13 @@ $ ynab auth [options]
 
 The auth command sets up authentication for the rest of the application. Simply
 run `ynab auth -t <your api token here>`, and subsequent commands will use your
-authorization.
+authorization. Instructions for obtaining an access token are the same as for the
+YNAB API:
+
+> To use this client, you must
+> [obtain an access token](https://api.youneedabudget.com/#authentication-overview) from
+> the [My Account](https://app.youneedabudget.com/settings) area of the YNAB web
+> application.
 
 | options               | info                         |
 |:----------------------|:-----------------------------|
