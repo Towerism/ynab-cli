@@ -7,6 +7,10 @@ class LogService {
     console.log(message)
   }
 
+  error (message) {
+    console.log(chalk.bold.red(message))
+  }
+
   silly (message) {
     console.log(chalk.italic.cyan(message))
   }
