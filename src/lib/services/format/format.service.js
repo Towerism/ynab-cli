@@ -1,7 +1,7 @@
-import { Injectable } from '../../ioc/injectable'
+import { Injectable } from '../../ioc/decorators/injectable'
 import { utils } from 'ynab'
 import moment from 'moment'
-import chalk from '../../../../node_modules/chalk'
+import chalk from 'chalk'
 
 @Injectable()
 class FormatService {

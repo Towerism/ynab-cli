@@ -1,5 +1,5 @@
-import { get } from './controller-table'
-import { constructorToToken } from './constructor-to-token'
+import { get } from '../controller-table'
+import { constructorToToken } from '../constructor-to-token'
 
 export function Action (action) {
   return (target, methodName) => {

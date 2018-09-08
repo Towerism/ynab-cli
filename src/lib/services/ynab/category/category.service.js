@@ -1,4 +1,4 @@
-import { Injectable } from '../../../ioc/injectable'
+import { Injectable } from '../../../ioc/decorators/injectable'
 
 @Injectable()
 class CategoryService {

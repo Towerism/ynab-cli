@@ -1,5 +1,5 @@
-import { Controller } from '../ioc/controller'
-import { Action } from '../ioc/action'
+import { Controller } from '../ioc/decorators/controller'
+import { Action } from '../ioc/decorators/action'
 import { AccountsView } from '../views/account/accounts.view'
 
 @Controller({

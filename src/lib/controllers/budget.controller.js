@@ -1,5 +1,5 @@
-import { Controller } from '../ioc/controller'
-import { Action } from '../ioc/action'
+import { Controller } from '../ioc/decorators/controller'
+import { Action } from '../ioc/decorators/action'
 import { BudgetsView } from '../views/budget/budgets.view'
 import { UseBudgetView } from '../views/budget/use-budget-view'
 

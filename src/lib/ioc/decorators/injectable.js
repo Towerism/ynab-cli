@@ -1,6 +1,6 @@
-import { Lifetime } from './lifetime'
-import { constructorToToken } from './constructor-to-token'
-import { provide } from './provide'
+import { Lifetime } from '../lifetime'
+import { constructorToToken } from '../constructor-to-token'
+import { provide } from '../provide'
 
 export function Injectable ({ lifetime, provider } = {}) {
   return constructor => {

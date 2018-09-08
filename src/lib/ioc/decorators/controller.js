@@ -1,9 +1,9 @@
-import { add, get } from './controller-table'
-import { constructorToToken } from './constructor-to-token'
+import { add, get } from '../controller-table'
+import { constructorToToken } from '../constructor-to-token'
 import { Injectable } from './injectable'
 import { last } from 'lodash'
-import { wrapAsync } from './wrap-async'
-import { container } from './container'
+import { wrapAsync } from '../wrap-async'
+import { container } from '../container'
 
 export function Controller (options) {
   return (constructor) => {
