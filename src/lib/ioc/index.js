@@ -1,4 +1,4 @@
-export * from './initialize-ioc'
+export * from './initialize-context'
 export * from './decorators'
 export * from 'awilix/lib/lifetime'
 export * from './resolve'

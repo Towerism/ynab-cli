@@ -12,10 +12,10 @@ import { AccountController } from './controllers/account.controller'
 import { AccountService } from './services/ynab/account/account.service'
 import { FormatService } from './services/format/format.service'
 import { Program } from './program'
-import { initializeIoc } from './ioc'
+import { initializeContext } from './ioc'
 
 export function initializeIocContext () {
-  initializeIoc({
+  return initializeContext({
     entryPoint: Program,
     providers: [
       AccountController,

@@ -4,6 +4,6 @@ import '@babel/polyfill'
 
 import { initializeIocContext } from '../lib/initialize-ioc-context'
 
-const run = initializeIocContext()
+const { run } = initializeIocContext()
 
 run(process.argv)
