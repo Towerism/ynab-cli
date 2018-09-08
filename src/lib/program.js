@@ -1,6 +1,10 @@
-import { Injectable } from './ioc/decorators/injectable'
+import { EntryPoint } from './ioc/decorators/entry-point'
+import pjson from '../../package.json'
 
-@Injectable()
+@EntryPoint({
+  name: 'ynab',
+  version: pjson.version
+})
 class Program {
   constructor ({ cliService, logService }) {
     this._cli = cliService

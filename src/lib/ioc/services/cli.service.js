@@ -1,5 +1,6 @@
 import cli from 'commander'
-import { provide } from '../../ioc/provide'
+import { provide } from '../provide'
+
 import pjson from '../../../../package.json'
 
 cli
