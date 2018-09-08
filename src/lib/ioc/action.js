@@ -9,6 +9,7 @@ export function Action (action) {
       addCommandsToRegister(token, action.command, methodName)
     } else {
       addActionsForOptions(token, action.forOptions, methodName)
+      addView(token, action.view, methodName)
     }
   }
 }
@@ -27,4 +28,9 @@ function addCommandsToRegister (token, command, methodName) {
 function addActionsForOptions (token, forOptions, methodName) {
   const { actionsForOptions } = get(token)
   actionsForOptions.push({ forOptions, methodName })
+}
+
+function addView (token, view, methodName) {
+  const { actionViews } = get(token)
+  actionViews[methodName] = view
 }

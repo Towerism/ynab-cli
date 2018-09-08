@@ -3,12 +3,13 @@ import { constructorToToken } from './constructor-to-token'
 import { Injectable } from './injectable'
 import { last } from 'lodash'
 import { wrapAsync } from './wrap-async'
+import { container } from './container'
 
 export function Controller (options) {
   return (constructor) => {
     const token = constructorToToken(constructor)
     add(token, options)
-    const { registerCommands, actionsForOptions } = get(token)
+    const { registerCommands, actionsForOptions, actionViews } = get(token)
     if (options.command) {
       registerCommands.push((prefix, cliService, instance) => {
         const command = cliService
@@ -23,7 +24,12 @@ export function Controller (options) {
             for (const { forOptions, methodName } of actionsForOptions) {
               if (forOptions(cmd)) {
                 await wrapAsync(async () => {
-                  await instance[methodName](cmd)
+                  const model = await instance[methodName](cmd)
+                  const View = actionViews[methodName]
+                  if (View) {
+                    const view = new View(container.cradle)
+                    view.print(model)
+                  }
                 })
                 break
               }

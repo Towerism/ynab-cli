@@ -24,6 +24,7 @@ export function contains (token) {
 function newEntry (extend) {
   return Object.assign({
     registerCommands: [],
-    actionsForOptions: []
+    actionsForOptions: [],
+    actionViews: {}
   }, extend)
 }
