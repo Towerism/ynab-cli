@@ -1,4 +1,4 @@
-import { Controller, Action } from '../ioc'
+import { Controller, Action } from 'commander-mvc'
 import { BudgetsView } from '../views/budget/budgets.view'
 import { UseBudgetView } from '../views/budget/use-budget-view'
 

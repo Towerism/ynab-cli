@@ -1,3 +1,4 @@
+import { Program } from './program'
 import { AuthController } from './controllers/auth.controller'
 import { ConfigStoreService } from './services/config-store/config-store.service'
 import { ConfigService } from './services/config/config.service'
@@ -11,8 +12,7 @@ import { UserService } from './services/ynab/user/user.service'
 import { AccountController } from './controllers/account.controller'
 import { AccountService } from './services/ynab/account/account.service'
 import { FormatService } from './services/format/format.service'
-import { Program } from './program'
-import { initializeContext } from './ioc'
+import { initializeContext } from 'commander-mvc'
 
 export function initializeIocContext () {
   return initializeContext({

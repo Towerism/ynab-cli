@@ -1,6 +1,6 @@
 import { budgets } from './fixtures/budgets'
 import { runProgram } from './helpers/run-program'
-import { resolve } from '../src/lib/ioc'
+import { resolve } from 'commander-mvc'
 import { provideYnabService } from './helpers/provide-ynab-service'
 import { provideConfigService } from './helpers/provide-config-service'
 

@@ -2,7 +2,7 @@ import { provideYnabService } from './helpers/provide-ynab-service'
 import { user } from './fixtures/user'
 import { runProgram } from './helpers/run-program'
 import { provideConfigService } from './helpers/provide-config-service'
-import { resolve } from '../src/lib/ioc'
+import { resolve } from 'commander-mvc'
 
 describe('auth', () => {
   describe('--token <token>', () => {

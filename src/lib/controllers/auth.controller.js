@@ -1,4 +1,4 @@
-import { Controller, Action } from '../ioc'
+import { Controller, Action } from 'commander-mvc'
 import { SuccessView } from '../views/success.view'
 import { UserView } from '../views/auth/user.view'
 

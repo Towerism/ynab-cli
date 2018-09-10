@@ -1,4 +1,4 @@
-import { EntryPoint } from './ioc'
+import { EntryPoint } from 'commander-mvc'
 import pjson from '../../package.json'
 
 @EntryPoint({
@@ -8,7 +8,6 @@ import pjson from '../../package.json'
 class Program {
   constructor ({ cliService, logService }) {
     this._cli = cliService
-    this._cli
       .on('command:*', () => {
         logService.error(`Invalid command: ${cliService.args}\nSee --help for a list of available commands.`)
       })

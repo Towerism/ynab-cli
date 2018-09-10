@@ -1,4 +1,4 @@
-import { provide } from '../../src/lib/ioc'
+import { provide } from 'commander-mvc'
 
 export function provideYnabService (service) {
   provide('ynabService', {

@@ -1,4 +1,4 @@
-import { Injectable } from '../../ioc'
+import { Injectable } from 'commander-mvc'
 import { utils } from 'ynab'
 import moment from 'moment'
 import chalk from 'chalk'

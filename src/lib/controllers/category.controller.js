@@ -1,4 +1,4 @@
-import { Controller, Action } from '../ioc'
+import { Controller, Action } from 'commander-mvc'
 import { drop } from 'lodash'
 import { CategoriesView } from '../views/category/categories.view'
 

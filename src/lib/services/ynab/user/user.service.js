@@ -1,4 +1,4 @@
-import { Injectable } from '../../../ioc'
+import { Injectable } from 'commander-mvc'
 
 @Injectable()
 class UserService {
