@@ -16,7 +16,7 @@
     "lint": "standard src/**/*.js e2e/**/*.js | snazzy",
     "clean": "rimraf dist",
     "travis-deploy-once": "travis-deploy-once",
-    "semantic-release": "semantic-release"
+    "semantic-release": "npm run build && semantic-release"
   },
   "author": "Martin Fracker <martin.frackerjr@gmail.com>",
   "license": "GPL-3.0",
