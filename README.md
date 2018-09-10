@@ -103,3 +103,7 @@ $ npm run deb-debug
 # lint
 $ npm run lint
 ```
+
+## Contrtibutors
+
+- Martin Fracker <martin.frackerjr@gmail.com> (affiliation: [Improving](https://www.improving.com))
