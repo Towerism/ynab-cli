@@ -1,13 +1,20 @@
-import { Injectable } from './ioc/injectable'
+import { EntryPoint } from 'commander-mvc'
+import pjson from '../../package.json'
 
-@Injectable()
+@EntryPoint({
+  name: 'ynab',
+  version: pjson.version
+})
 class Program {
-  constructor ({ cliService }) {
+  constructor ({ cliService, logService }) {
     this._cli = cliService
+      .on('command:*', () => {
+        logService.error(`Invalid command: ${cliService.args}\nSee --help for a list of available commands.`)
+      })
   }
 
-  run () {
-    this._cli.parse(process.argv)
+  run (argv) {
+    this._cli.parse(argv)
   }
 }
 

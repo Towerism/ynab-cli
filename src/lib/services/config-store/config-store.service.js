@@ -1,4 +1,4 @@
-import { provide } from '../../ioc/provide'
+import { provide } from 'commander-mvc'
 import ConfigStore from 'configstore'
 
 export const ConfigStoreService = provide('configStoreService', {

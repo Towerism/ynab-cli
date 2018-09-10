@@ -2,6 +2,7 @@ language: node_js
 cache:
   directories:
     - ~/.npm
+    - node_modules
 notifications:
   email: false
 node_js:
@@ -9,6 +10,11 @@ node_js:
   - '9'
   - '8'
   - '6'
+before-install:
+  - npm install -g codecov
+script:
+  - npm run test
+  - npx codecov
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
 branches:

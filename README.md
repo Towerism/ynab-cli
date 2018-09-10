@@ -1,6 +1,7 @@
 # YNAB CLI
 
 [![Build Status](https://travis-ci.org/Towerism/ynab-cli.svg?branch=master)](https://travis-ci.org/Towerism/ynab-cli)
+[![codecov](https://codecov.io/gh/Towerism/ynab-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/Towerism/ynab-cli)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![npm version](https://badge.fury.io/js/%40ynab-cli%2Fcli.svg)](https://badge.fury.io/js/%40ynab-cli%2Fcli)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
@@ -32,7 +33,13 @@ $ ynab auth [options]
 
 The auth command sets up authentication for the rest of the application. Simply
 run `ynab auth -t <your api token here>`, and subsequent commands will use your
-authorization.
+authorization. Instructions for obtaining an access token are the same as for the
+YNAB API:
+
+> To use this client, you must
+> [obtain an access token](https://api.youneedabudget.com/#authentication-overview) from
+> the [My Account](https://app.youneedabudget.com/settings) area of the YNAB web
+> application.
 
 | options               | info                         |
 |:----------------------|:-----------------------------|
@@ -96,3 +103,7 @@ $ npm run deb-debug
 # lint
 $ npm run lint
 ```
+
+## Contrtibutors
+
+- Martin Fracker <martin.frackerjr@gmail.com> (affiliation: [Improving](https://www.improving.com))

@@ -1,35 +1,32 @@
-import { Controller } from '../ioc/controller'
-import { Action } from '../ioc/action'
-import chalk from 'chalk'
+import { Controller, Action } from 'commander-mvc'
 import { drop } from 'lodash'
+import { CategoriesView } from '../views/category/categories.view'
 
 @Controller({
   command: 'category',
   options: [['-l, --list [budgetId]', 'list all categories']]
 })
 class CategoryController {
-  constructor ({ categoryService, formatService, configService, logService }) {
+  constructor ({ categoryService, configService }) {
     this._categoryService = categoryService
-    this._formatter = formatService
     this._config = configService
-    this._logger = logService
   }
 
-  @Action({ forOptions: options => typeof options.list === 'string' })
+  @Action({
+    forOptions: options => typeof options.list === 'string',
+    view: CategoriesView
+  })
   async listForBudget ({ list }) {
     const { data } = await this._categoryService.list(list)
-    drop(data.category_groups, 1).forEach(group => {
-      this._logger.print(chalk.green(group.name))
-      group.categories.forEach(category => {
-        const balance = this._formatter.milliUnitsToUsd(category.balance, 2)
-        this._logger.print(`    ${category.name}: ${chalk.yellow(`${balance}`)}`)
-      })
-    })
+    return drop(data.category_groups, 1)
   }
 
-  @Action({ forOptions: options => options.list })
+  @Action({
+    forOptions: options => options.list,
+    view: CategoriesView
+  })
   async listForActiveBudget () {
-    await this.listForBudget({ list: this._config.activeBudgetId })
+    return this.listForBudget({ list: this._config.activeBudgetId })
   }
 }
 

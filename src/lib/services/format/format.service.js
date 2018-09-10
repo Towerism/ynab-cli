@@ -1,6 +1,7 @@
-import { Injectable } from '../../ioc/injectable'
+import { Injectable } from 'commander-mvc'
 import { utils } from 'ynab'
 import moment from 'moment'
+import chalk from 'chalk'
 
 @Injectable()
 class FormatService {
@@ -10,6 +11,10 @@ class FormatService {
 
   isoToLongDate (isoDate) {
     return moment(isoDate).format('LL')
+  }
+
+  successMessage (message) {
+    return chalk.green(message)
   }
 }
 

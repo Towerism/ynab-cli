@@ -1,10 +1,14 @@
-import { Injectable } from '../../ioc/injectable'
+import { Injectable } from 'commander-mvc'
 import chalk from 'chalk'
 
 @Injectable()
 class LogService {
   print (message) {
     console.log(message)
+  }
+
+  error (message) {
+    console.log(chalk.bold.red(message))
   }
 
   silly (message) {

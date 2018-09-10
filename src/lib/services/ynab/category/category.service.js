@@ -1,4 +1,4 @@
-import { Injectable } from '../../../ioc/injectable'
+import { Injectable } from 'commander-mvc'
 
 @Injectable()
 class CategoryService {

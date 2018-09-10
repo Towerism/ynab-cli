@@ -11,8 +11,9 @@
     "dev": "npm run build && node dist/bin/cli.js",
     "start": "node dist/bin/cli.js",
     "dev-debug": "npm run build && node --inspect-brk dist/bin/cli.js",
-    "test": "npm run lint && npm run build",
-    "lint": "standard src/**/*.js | snazzy",
+    "test": "npm run lint && jest --coverage",
+    "test-dev": "jest --watchAll",
+    "lint": "standard src/**/*.js e2e/**/*.js | snazzy",
     "clean": "rimraf dist",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
@@ -21,9 +22,8 @@
   "license": "GPL-3.0",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "awilix": "^3.0.9",
     "chalk": "^2.4.1",
-    "commander": "^2.17.1",
+    "commander-mvc": "^1.0.1",
     "configstore": "^4.0.0",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
@@ -34,7 +34,11 @@
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.4.2",
+    "jest": "^23.5.0",
+    "regenerator-runtime": "^0.12.1",
     "rimraf": "^2.6.2",
     "semantic-release": "^15.9.12",
     "snazzy": "^8.0.0",
@@ -42,7 +46,10 @@
     "travis-deploy-once": "^5.0.7"
   },
   "standard": {
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "env": [
+      "jest"
+    ]
   },
   "publishConfig": {
     "access": "public"
