@@ -1,4 +1,4 @@
-import { Injectable } from '../../ioc/decorators/injectable'
+import { Injectable } from 'commander-mvc'
 import chalk from 'chalk'
 
 @Injectable()

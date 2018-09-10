@@ -1,5 +1,4 @@
-import { Controller } from '../ioc/decorators/controller'
-import { Action } from '../ioc/decorators/action'
+import { Controller, Action } from 'commander-mvc'
 import { AccountsView } from '../views/account/accounts.view'
 
 @Controller({
